@@ -26,29 +26,29 @@ from discord.ext import commands
 
 intents = discord.Intents.default()
 intents.members = True
-client = discord.Client()
+bot = discord.Bot()
 
-@client.event
+@bot.event
 async def on_ready():
-    print(f'{client.user.name} has connected to Discord!')
+    print(f'{bot.user.name} has connected to Discord!')
 
-@client.event
+@bot.event
 async def on_member_join(member):
     await member.create_dm()
     await member.dm_channel.send(
         f'Hi {member.name}, welcome to my Discord server!'
     )
 
-@client.slash_command(guild_ids=[1004947709238718564])
+@bot.slash_command(guild_ids=[1004947709238718564])
 async def hello(ctx):
     await ctx.respond("Hello!")
 
-@client.slash_command(guild_ids=[1004947709238718564])
+@bot.slash_command(guild_ids=[1004947709238718564])
 async def ping(ctx):
     await ctx.respond("Hey, are you there?")
 
-@client.command(guild_ids=[1004947709238718564], name='test')
+@bot.command(guild_ids=[1004947709238718564], name='test')
 async def test(ctx,arg):
     await ctx.send(arg)
 
-client.run(os.environ.get('DISCORD_TOKEN'))
+bot.run(os.environ.get('DISCORD_TOKEN'))
