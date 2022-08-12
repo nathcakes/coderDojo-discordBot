@@ -24,13 +24,15 @@ import os
 import discord
 from discord.ext import commands
 
+intents = discord.Intents.default()
+intents.members = True
 client = discord.Client()
 
 @client.event
 async def on_ready():
     print(f'{client.user.name} has connected to Discord!')
 
-@client.event(guild_ids=[1004947709238718564])
+@client.event()
 async def on_member_join(member):
     await member.create_dm()
     await member.dm_channel.send(
