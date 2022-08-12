@@ -37,4 +37,4 @@ async def on_member_join(member):
         f'Hi {member.name}, welcome to my Discord server!'
     )
 
-client.run(os.environ["DISCORD_TOKEN"])
+client.run(os.environ.get('DISCORD_TOKEN'))
