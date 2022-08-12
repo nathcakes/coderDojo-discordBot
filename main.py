@@ -22,10 +22,7 @@
 #This is a decorator implementation of the above
 import os
 import discord
-from dotenv import load_dotenv
 
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
 
 client = discord.Client()
 
@@ -40,4 +37,4 @@ async def on_member_join(member):
         f'Hi {member.name}, welcome to my Discord server!'
     )
 
-client.run(TOKEN)
+client.run(os.environ["DISCORD_TOKEN"])
