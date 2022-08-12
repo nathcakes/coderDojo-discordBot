@@ -21,7 +21,7 @@ async def hello(ctx):
 async def ping(ctx):
     await ctx.respond("Hey, are you there?")
 
-@bot.slash_command(guild_ids=testServer, name=['commands', 'cmds'])
+@bot.slash_command(guild_ids=testServer, name='commands')
 async def cmds(ctx):
     await ctx.respond("Here are the commands:")
     await ctx.respond("/hello - Says Hello")
