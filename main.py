@@ -1,6 +1,7 @@
 import os
 import discord
 import python_weather
+import asyncio
 
 #intents = discord.Intents.all()
 bot = discord.Bot()
@@ -14,7 +15,7 @@ async def getweather():
             forecasts.append(forecast.date)
     return forecasts
 
-weather = getweather()
+weather = asyncio.run(getweather())
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
