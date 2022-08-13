@@ -1,10 +1,20 @@
 import os
 import discord
-from discord.ext import commands
+import python_weather
 
-intents = discord.Intents.all()
-bot = discord.Bot(intents=intents)
+#intents = discord.Intents.all()
+bot = discord.Bot()
 testServer = [1004947709238718564]
+
+async def getweather():
+    async with python_weather.Client() as client:
+        weather = await client.get("Perth")
+        forecasts = []
+        for forecast in weather.forecasts:
+            forecasts.append(forecast.date)
+    return forecasts
+
+weather = getweather()
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
@@ -20,6 +30,10 @@ async def hello(ctx):
 @bot.slash_command(guild_ids=[1004947709238718564])
 async def ping(ctx):
     await ctx.respond("Hey, are you there?")
+
+@bot.slash_command(guild_ids=[1004947709238718564])
+async def whatstheweather(ctx):
+    await ctx.respond(weather[0])
 
 @bot.slash_command(guild_ids=testServer, name='commands')
 async def cmds(ctx):
