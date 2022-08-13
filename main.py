@@ -34,7 +34,7 @@ async def ping(ctx):
 
 @bot.slash_command(guild_ids=[1004947709238718564])
 async def whatstheweather(ctx):
-    await ctx.respond(weather[0])
+    await ctx.respond(weather)
 
 @bot.slash_command(guild_ids=testServer, name='commands')
 async def cmds(ctx):
