@@ -7,12 +7,12 @@ import asyncio
 bot = discord.Bot()
 testServer = [1004947709238718564]
 
-async def getweather():
+async def getweather(ctx):
     async with python_weather.Client() as client:
         weather = await client.get("Perth")
-        forecasts = []
+        forecasts = {}
         for forecast in weather.forecasts:
-            forecasts.append(forecast.date)
+            forecasts.update({forecast.date:forecast.average_temperature})
     return forecasts
 
 weather = asyncio.run(getweather())
