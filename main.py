@@ -7,7 +7,7 @@ import asyncio
 bot = discord.Bot()
 testServer = [1004947709238718564]
 
-async def getweather(ctx):
+async def getweather():
     async with python_weather.Client() as client:
         weather = await client.get("Perth")
         forecasts = {}
