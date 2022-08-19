@@ -47,5 +47,7 @@ async def cmds(ctx):
 async def test(ctx,arg):
     await ctx.send(arg)
 
+#bot.load_extension("commands")
+
 
 bot.run(os.environ.get('DISCORD_TOKEN'))
