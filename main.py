@@ -7,15 +7,15 @@ import asyncio
 bot = discord.Bot()
 testServer = [1004947709238718564]
 
-async def getweather():
+async def getweather(c):
     async with python_weather.Client() as client:
-        weather = await client.get("Perth")
+        weather = await client.get(c)
         forecasts = {}
         for forecast in weather.forecasts:
             forecasts.update({forecast.date:forecast.average_temperature})
     return forecasts
 
-weather = asyncio.run(getweather())
+
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
@@ -33,8 +33,9 @@ async def ping(ctx):
     await ctx.respond("Hey, are you there?")
 
 @bot.slash_command(guild_ids=[1004947709238718564])
-async def whatstheweather(ctx):
-    await ctx.respond(weather)
+async def whatstheweather(ctx,country):
+    w = await getweather()
+    await ctx.respond(w)
 
 @bot.slash_command(guild_ids=testServer, name='commands')
 async def cmds(ctx):
