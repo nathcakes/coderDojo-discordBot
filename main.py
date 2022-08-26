@@ -21,11 +21,11 @@ def getguilds():
 def hrole(u,rid):
     pass
 
-def getroles():
-    i = []
-    for r in bot.roles:
-        i.append(r.id)
-    return i    
+# def getroles():
+#     i = []
+#     for r in :
+#         i.append(r.id)
+#     return i    
 
 async def getweather(c):
     async with python_weather.Client() as client:
@@ -73,7 +73,7 @@ async def cmds(ctx):
     await ctx.respond("/ping - Says Hey, are you there?")
     await ctx.respond("/test *args* - Repeats args back to you in the server")
 
-role_ids = getroles()
+# role_ids = getroles()
 # class RoleButton(discord.ui.Button):
 #     def __init__(self,role: discord.Role):
 #         super().__init__(
