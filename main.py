@@ -4,10 +4,10 @@ import python_weather
 import asyncio
 import datetime
 
-class MyView(discord.ui.View):
-    @discord.ui.button(label="Click me!", style=discord.ButtonStyle.success)
-    async def button_callback(self, button, interaction):
-        await interaction.response.send_message("You clicked the button!")
+# class MyView(discord.ui.View):
+#     @discord.ui.button(label="Click me!", style=discord.ButtonStyle.success)
+#     async def button_callback(self, button, interaction):
+#         await interaction.response.send_message("You clicked the button!")
 #intents = discord.Intents.all()
 intents = discord.Intents.default()
 intents.members = True
@@ -47,11 +47,12 @@ async def on_member_join(member):
 @bot.slash_command(guild_ids=[1004947709238718564])
 async def hello(ctx):
     await ctx.respond("Hello!")
-@bot.slash_command(guild_ids=[1004947709238718564])
-async def react(ctx):
-    if ctx.author.id != 177746970956267520:
-        return await ctx.respond("You are not the owner")
-    x = await ctx.respond("smth",view=MyView())
+
+# @bot.slash_command(guild_ids=[1004947709238718564])
+# async def react(ctx):
+#     if ctx.author.id != 177746970956267520:
+#         return await ctx.respond("You are not the owner")
+#     x = await ctx.respond("smth",view=MyView())
 
 
 @bot.slash_command(guild_ids=[1004947709238718564])
@@ -73,13 +74,13 @@ async def cmds(ctx):
     await ctx.respond("/test *args* - Repeats args back to you in the server")
 
 role_ids = getroles()
-class RoleButton(discord.ui.Button):
-    def __init__(self,role: discord.Role):
-        super().__init__(
-            label=role.name,
-            style=discord.ButtonStyle.primary
-            custom_id=str(role.id),
-        )
+# class RoleButton(discord.ui.Button):
+#     def __init__(self,role: discord.Role):
+#         super().__init__(
+#             label=role.name,
+#             style=discord.ButtonStyle.primary,
+#             custom_id=str(role.id),
+#         )
 
 
 
