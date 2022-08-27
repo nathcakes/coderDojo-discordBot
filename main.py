@@ -3,6 +3,20 @@ import discord
 import python_weather
 import asyncio
 import datetime
+from flask import Flask
+from taskel import Tasks
+
+app = Flask('discordbot')
+
+app.route('/')
+def hello_world(): 
+    return 'Hello, World!'
+
+def run(): 
+    app.run(host='0.0.0.0',port=8084)
+
+tm = Tasks()
+t = tm.create(target=run)
 
 # class MyView(discord.ui.View):
 #     @discord.ui.button(label="Click me!", style=discord.ButtonStyle.success)
@@ -95,5 +109,6 @@ async def test(ctx,arg):
     await ctx.send(arg)
 
 
+t.start()
 bot.run(os.environ.get('DISCORD_TOKEN'))
 #bot.run("MTAwNDk0Mjg1Mjc5NjczMTM5Mg.G635uG.RurD2SbVWBw9CwvMQ35mN8ot5xwPcNW0Mm_6lI")

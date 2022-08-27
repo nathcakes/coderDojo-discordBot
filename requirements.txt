@@ -1,2 +1,4 @@
 py-cord==2.0.0
 python-weather==0.4.1
+taskel==0.0.3
+flask==2.2.2
