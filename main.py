@@ -111,4 +111,3 @@ async def test(ctx,arg):
 
 t.start()
 bot.run(os.environ.get('DISCORD_TOKEN'))
-#bot.run("MTAwNDk0Mjg1Mjc5NjczMTM5Mg.G635uG.RurD2SbVWBw9CwvMQ35mN8ot5xwPcNW0Mm_6lI")
